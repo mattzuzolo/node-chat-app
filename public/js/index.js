@@ -12,4 +12,18 @@ socket.on("disconnect", () => {
 
 socket.on("newMessage", (message) => {
   console.log("newMessage", message);
+  let individualFeedMessage = document.createElement("li");
+  individualFeedMessage.innerText = `${message.from}: ${message.text}`
+  document.getElementById("message-feed").append(individualFeedMessage);
+});
+
+document.getElementById("message-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  socket.emit("createMessage", {
+    from: "User",
+    text: document.getElementById("message-field").value,
+  }, () => {
+    console.log("front end acknoledgment")
+  })
 });

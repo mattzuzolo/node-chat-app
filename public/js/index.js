@@ -4,10 +4,6 @@ let socket = io(); //initiates a request from the client to the sever and keepin
 socket.on("connect", () => {
   console.log("Connected to server");
 
-  socket.emit("createMessage", {
-    from: "Matt",
-    text: "matt's message",
-  })
 });
 
 socket.on("disconnect", () => {

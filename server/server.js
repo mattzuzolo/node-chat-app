@@ -29,7 +29,7 @@ io.on("connection", (socket) => {
 
     //server-side acknowledgment. Passed as arg
     //use object for multiple items in cb
-    callback("This is from the server");
+    callback();
   });
 
   socket.on("createLocationMessage", (coords) => {
